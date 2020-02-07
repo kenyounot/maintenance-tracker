@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { userPostFetch } from '../actions/userFetch';
 
 export class SignUpForm extends Component {
 	constructor() {
@@ -8,9 +10,15 @@ export class SignUpForm extends Component {
 			name: '',
 			email: '',
 			password: '',
-			passwordConfirmation: ''
+			password_confirmation: ''
 		};
 	}
+
+	handleOnSubmit = event => {
+		event.preventDefault();
+
+		this.props.userPostFetch(this.state);
+	};
 
 	handleOnChange = event => {
 		this.setState({
@@ -19,12 +27,10 @@ export class SignUpForm extends Component {
 	};
 
 	render() {
-		console.log(this.state);
-
 		return (
 			<div>
 				<h2>Sign Up Below</h2>
-				<form className='signup-form'>
+				<form onSubmit={this.handleOnSubmit} className='signup-form'>
 					<input
 						onChange={this.handleOnChange}
 						type='text'
@@ -52,9 +58,9 @@ export class SignUpForm extends Component {
 					<input
 						onChange={this.handleOnChange}
 						type='password'
-						name='passwordConfirmation'
+						name='password_confirmation'
 						placeholder='Password Confirm'
-						value={this.state.passwordConfirmation}
+						value={this.state.password_confirmation}
 					/>
 					<br />
 					<button type='submit'>Submit</button>
@@ -64,4 +70,8 @@ export class SignUpForm extends Component {
 	}
 }
 
-export default SignUpForm;
+const mapDispatchToProps = dispatch => ({
+	userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
+});
+
+export default connect(null, mapDispatchToProps)(SignUpForm);

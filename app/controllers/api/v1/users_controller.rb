@@ -3,16 +3,17 @@ class Api::V1::UsersController < ApplicationController
    
     def create
       user = User.new(user_params)
-      command = AuthenticateUser.call(user_params[:email], user_params[:password])
+      
 
       if user.save
-        render json: { data: {
+        command = AuthenticateUser.call(user_params[:email], user_params[:password])
+        render json: {
           user: {
             name: user.name,
             email: user.email,
-            token: command.result
-          }
-        } }
+          },
+          jwt: command.result
+        }
       end
     end
 
@@ -29,6 +30,6 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-      params.permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end
