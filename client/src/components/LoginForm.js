@@ -21,7 +21,7 @@ export class LoginForm extends Component {
 	handleOnSubmit = event => {
 		event.preventDefault();
 
-		this.props.userLogin(this.state);
+		this.props.userAuthenticate(this.state);
 		this.setState({
 			email: '',
 			password: ''

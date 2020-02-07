@@ -12,6 +12,8 @@ export const userAuthenticate = user => {
 			.then(data => {
 				if (data.message) {
 				} else {
+					console.log(data);
+
 					localStorage.setItem('token', data.jwt);
 					dispatch(loginUser(data.user));
 				}

@@ -12,10 +12,6 @@ export const userPostFetch = user => {
 			.then(data => {
 				if (data.message) {
 				} else {
-					console.log(data);
-					console.log(data.user);
-					console.log(data.jwt);
-
 					localStorage.setItem('token', data.jwt);
 					dispatch(loginUser(data.user));
 				}

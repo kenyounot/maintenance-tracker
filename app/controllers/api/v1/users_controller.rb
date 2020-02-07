@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
             name: user.name,
             email: user.email
           },
-          auth_token: command.result
+          jwt: command.result
         }
       else
         render json: { error: command.errors }, status: :unauthorized
