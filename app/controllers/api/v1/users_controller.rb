@@ -2,10 +2,10 @@ class Api::V1::UsersController < ApplicationController
     skip_before_action :authenticate_request
    
     def create
-      user = User.new(user_params)
       
-
-      if user.save
+       user = User.new(user_params)
+       
+       if user.save
         command = AuthenticateUser.call(user_params[:email], user_params[:password])
         render json: {
           user: {
@@ -14,8 +14,9 @@ class Api::V1::UsersController < ApplicationController
           },
           jwt: command.result
         }
-      end
+       end
     end
+     
 
     def authenticate
       command = AuthenticateUser.call(params[:email], params[:password])

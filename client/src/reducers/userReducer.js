@@ -5,6 +5,10 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
+	console.log('hitting here.');
+	console.log(action);
+	console.log(state);
+
 	switch (action.type) {
 		case 'LOGIN_USER':
 			return {

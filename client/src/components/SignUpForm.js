@@ -18,6 +18,12 @@ export class SignUpForm extends Component {
 		event.preventDefault();
 
 		this.props.userPostFetch(this.state);
+		this.setState({
+			name: '',
+			email: '',
+			password: '',
+			password_confirmation: ''
+		});
 	};
 
 	handleOnChange = event => {
