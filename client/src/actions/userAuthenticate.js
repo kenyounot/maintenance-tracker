@@ -1,4 +1,4 @@
-export const userPostFetch = user => {
+export const userAuthenticate = user => {
 	return dispatch => {
 		return fetch('/api/v1/authenticate', {
 			method: 'POST',
