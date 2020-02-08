@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authenticate_request
+    skip_before_action :authenticate_request, :except => [:profile]
    
     def create
       
@@ -35,6 +35,18 @@ class Api::V1::UsersController < ApplicationController
       else
         render json: { error: command.errors }, status: :unauthorized
       end
+    end
+
+    def profile
+      @user = current_user
+
+      render json: {
+        user: {
+          id: @user.id,
+          name: @user.name,
+          email: @user.email
+        }
+      }
     end
 
     private

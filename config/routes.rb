@@ -7,6 +7,7 @@ Rails.application.routes.draw do
           resources :vehicles, only: [:index, :create]
           post 'authenticate', to: 'users#authenticate'
           get 'vehicles/:id', to: 'vehicles#user_vehicles'
+          get 'profile', to: 'users#profile'
     end
   end
 end
