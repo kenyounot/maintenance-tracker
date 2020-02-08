@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
-import { Switch, Route, Link } from 'react-router-dom';
+import Home from './containers/Home';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 
 function App() {
 	return (
@@ -18,9 +20,28 @@ function App() {
 			<Switch>
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/signup' component={SignUp} />
+				<ProtectedRoute exact path='/home' component={Home} />
 			</Switch>
 		</div>
 	);
 }
+
+const ProtectedRoute = ({ component: Component, ...rest }) => (
+	<Route
+		{...rest}
+		render={props =>
+			localStorage.getItem('token') ? (
+				<Component {...props} />
+			) : (
+				<Redirect
+					to={{
+						pathname: '/login',
+						state: { from: props.location }
+					}}
+				/>
+			)
+		}
+	/>
+);
 
 export default App;

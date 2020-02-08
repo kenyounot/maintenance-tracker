@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { userAuthenticate } from '../actions/userAuthenticate';
 
 export class LoginForm extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			email: '',
 			password: ''
 		};
+
+		this.handleOnSubmit = this.handleOnSubmit.bind(this);
 	}
 
 	handleOnChange = event => {
@@ -22,6 +25,7 @@ export class LoginForm extends Component {
 		event.preventDefault();
 
 		this.props.userAuthenticate(this.state);
+		this.props.history.push('/home');
 		this.setState({
 			email: '',
 			password: ''

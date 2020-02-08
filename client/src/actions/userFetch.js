@@ -13,6 +13,7 @@ export const userPostFetch = user => {
 				if (data.message) {
 				} else {
 					localStorage.setItem('token', data.jwt);
+
 					dispatch(loginUser(data.user));
 				}
 			});
