@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
-import authenticate from '../helpers/authenticate';
 import { connect } from 'react-redux';
 import { userAuthenticate } from '../actions/userAuthenticate';
 
