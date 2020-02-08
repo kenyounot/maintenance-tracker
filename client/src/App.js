@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
-import Home from './containers/Home';
+import Garage from './containers/Garage';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 				<Route exact path='/' component={Login} />
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/signup' component={SignUp} />
-				<ProtectedRoute exact path='/home' component={Home} />
+				<ProtectedRoute exact path='/garage' component={Garage} />
 			</Switch>
 		</div>
 	);
