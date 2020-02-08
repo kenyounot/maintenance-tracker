@@ -9,6 +9,7 @@ function App() {
 	return (
 		<div>
 			<Switch>
+				<Route exact path='/' component={Login} />
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/signup' component={SignUp} />
 				<ProtectedRoute exact path='/home' component={Home} />
