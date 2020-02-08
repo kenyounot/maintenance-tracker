@@ -11,10 +11,10 @@ class Api::V1::VehiclesController < ApplicationController
 
     def user_vehicles
         user = User.find_by(id: params[:id] )
-        vehicles = user.vehicles
+        vehicles = [user.vehicles]
 
         render json: {
-            data: [vehicles],
+            vehicles: vehicles,
             status: :ok
         }
     end

@@ -1,27 +1,24 @@
-// export function fetchVehicles() {
-// 	console.log('hello');
-
-// 	return (dispatch, getState) => {
-// 		const state = getState();
-
-// 		console.log('hello');
-
-// 		console.log(state);
-
-// 		// dispatch({ type: 'START_FETCHING_VEHICLES' });
-// 		// fetch(`/api/v1/vehicles/${userId}`);
-// 	};
-// }
-
 export const fetchVehicles = () => (dispatch, getState) => {
 	const state = getState();
-
 	const userId = state.userReducer.currentUser.id;
-	console.log(state.userReducer);
+	const token = localStorage.getItem('token');
 
-	// dispatch({ type: 'START_FETCHING_VEHICLES' });
-	// fetch(`/api/v1/vehicles/${userId}`)
-	// 	.then(res => res.json())
-	// 	.then(vehicles =>
-	dispatch({ type: 'ADD_VEHICLES' });
+	dispatch({ type: 'START_FETCHING_VEHICLES' });
+	fetch(`/api/v1/vehicles/${userId}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+			Accept: 'application/json',
+			Authorization: `Bearer ${token}`
+		}
+	})
+		.then(res => res.json())
+		.then(data => {
+			dispatch(storeVehicles(data.vehicles));
+		});
 };
+
+const storeVehicles = vehicles => ({
+	type: 'ADD_VEHICLES',
+	payload: vehicles
+});

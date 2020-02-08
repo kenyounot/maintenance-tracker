@@ -5,7 +5,10 @@ const initialState = {
 const vehicleReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'ADD_VEHICLES':
-			console.log('adding vehicles...');
+			return {
+				...state,
+				vehicles: state.vehicles.concat(action.payload.map(vehicle => vehicle))
+			};
 
 		default:
 			return state;
