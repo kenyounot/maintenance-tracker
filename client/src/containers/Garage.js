@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+// import { fetchVehicles } from '../actions/fetchVehicles';
 
-export class Home extends Component {
+export class Garage extends Component {
+	componentDidMount() {
+		// fetchVehicles()();
+	}
+
 	render() {
 		return <div>Garage</div>;
 	}
 }
 
-export default Home;
+export default Garage;
