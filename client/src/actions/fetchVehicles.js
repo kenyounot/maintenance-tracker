@@ -13,11 +13,15 @@
 // 	};
 // }
 
-// export const fetchVehicles = () => (dispatch, getState) => {
-// 	const state = getState();
+export const fetchVehicles = () => (dispatch, getState) => {
+	const state = getState();
 
-// 	const userId = state.userReducer.user;
+	const userId = state.userReducer.currentUser.id;
+	console.log(state.userReducer);
 
-// 	dispatch({ type: 'START_FETCHING_VEHICLES' });
-// 	fetch(`/api/v1/vehicles/${userId}`);
-// };
+	// dispatch({ type: 'START_FETCHING_VEHICLES' });
+	// fetch(`/api/v1/vehicles/${userId}`)
+	// 	.then(res => res.json())
+	// 	.then(vehicles =>
+	dispatch({ type: 'ADD_VEHICLES' });
+};

@@ -11,6 +11,7 @@ class Api::V1::UsersController < ApplicationController
           user: {
             name: user.name,
             email: user.email,
+            id: user.id
           },
           jwt: command.result
         }
@@ -26,7 +27,8 @@ class Api::V1::UsersController < ApplicationController
         render json: { 
           user: {
             name: user.name,
-            email: user.email
+            email: user.email,
+            id: user.id
           },
           jwt: command.result
         }
