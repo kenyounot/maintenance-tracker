@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
+import authenticate from '../helpers/authenticate';
 import { connect } from 'react-redux';
 import { userAuthenticate } from '../actions/userAuthenticate';
 
@@ -30,6 +31,12 @@ export class Login extends Component {
 		});
 	};
 
+	componentDidMount = () => {
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/home');
+		}
+	};
+
 	render() {
 		return (
 			<div>
@@ -47,4 +54,10 @@ const mapDispatchToProps = dispatch => ({
 	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo))
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+const mapStateToProps = state => {
+	return {
+		loggedIn: state.userReducer.loggedIn
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

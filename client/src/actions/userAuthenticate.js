@@ -10,10 +10,11 @@ export const userAuthenticate = user => {
 		})
 			.then(resp => resp.json())
 			.then(data => {
-				if (data.message) {
-				} else {
+				if (data.jwt) {
 					localStorage.setItem('token', data.jwt);
 					dispatch(loginUser(data.user));
+				} else {
+					console.log('error');
 				}
 			});
 	};

@@ -12,6 +12,13 @@ const userReducer = (state = initialState, action) => {
 				loggedIn: true
 			};
 
+		case 'LOGOUT_USER':
+			localStorage.removeItem('token');
+			return {
+				...state,
+				currentUser: {},
+				loggedIn: false
+			};
 		default:
 			return state;
 	}
