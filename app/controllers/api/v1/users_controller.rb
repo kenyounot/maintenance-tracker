@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     def create
       
        user = User.new(user_params)
-       
+       k
        if user.save
         command = AuthenticateUser.call(user_params[:email], user_params[:password])
         render json: {
