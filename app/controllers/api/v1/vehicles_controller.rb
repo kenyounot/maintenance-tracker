@@ -1,13 +1,4 @@
 class Api::V1::VehiclesController < ApplicationController
-    def index
-        vehicles = Vehicle.all
-
-        render json: {
-            data: [vehicles],
-            status: :ok
-        }
-    end
-
     def create
         @vehicle = Vehicle.new(vehicle_params)
 
@@ -16,6 +7,16 @@ class Api::V1::VehiclesController < ApplicationController
                 data: [@vehicle]
             }
         end
+    end
+
+    def user_vehicles
+        user = User.find_by(id: params[:id] )
+        vehicles = user.vehicles
+
+        render json: {
+            data: [vehicles],
+            status: :ok
+        }
     end
 
 
