@@ -16,7 +16,9 @@ export class Login extends Component {
 	handleOnSubmit = event => {
 		event.preventDefault();
 
-		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
+		this.props
+			.userAuthenticate(this.state)
+			.then(() => this.props.history.push('/garage'));
 
 		this.setState({
 			email: '',
@@ -35,10 +37,10 @@ export class Login extends Component {
 	};
 
 	componentDidMount = () => {
-		if (localStorage.getItem('token')) {
-			this.props.history.push('/home');
-		}
 		this.props.history.push('/login');
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/garage');
+		}
 	};
 
 	render() {

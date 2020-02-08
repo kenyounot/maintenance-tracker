@@ -18,7 +18,7 @@ export class SignUp extends Component {
 	handleOnSubmit = event => {
 		event.preventDefault();
 
-		this.props.userPostFetch(this.state).then(() => this.props.history.push('/home'));
+		this.props.userPostFetch(this.state).then(() => this.props.history.push('/garage'));
 		this.setState({
 			name: '',
 			email: '',
@@ -39,7 +39,7 @@ export class SignUp extends Component {
 
 	componentDidMount = () => {
 		if (localStorage.getItem('token')) {
-			this.props.history.push('/home');
+			this.props.history.push('/garage');
 		}
 	};
 

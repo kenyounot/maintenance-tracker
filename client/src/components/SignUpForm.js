@@ -17,7 +17,7 @@ const SignUpForm = props => {
 					onChange={props.handleOnChange}
 					type='email'
 					name='email'
-					placholder='Email'
+					placeholder='Email'
 					value={props.userInfo.userName}
 				/>
 				<br />
