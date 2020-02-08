@@ -21,8 +21,10 @@ const LoginForm = props => {
 					value={props.userInfo.password}
 				/>
 				<br />
-				<input type='submit' value='Submit' />
+				<input type='submit' value='Login' />
 			</form>
+			Don't have an account?
+			<button onClick={props.handleCreateClick}>Create Account</button>
 		</div>
 	);
 };

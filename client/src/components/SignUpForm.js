@@ -37,8 +37,10 @@ const SignUpForm = props => {
 					value={props.userInfo.password_confirmation}
 				/>
 				<br />
-				<button type='submit'>Submit</button>
+				<input type='submit' value='Create Account' />
 			</form>
+			Already have an account?
+			<button onClick={props.handleLoginClick}>Login</button>
 		</div>
 	);
 };

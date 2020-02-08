@@ -33,10 +33,21 @@ export class SignUp extends Component {
 		});
 	};
 
+	handleLoginClick = () => {
+		this.props.history.push('/login');
+	};
+
+	componentDidMount = () => {
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/home');
+		}
+	};
+
 	render() {
 		return (
 			<div>
 				<SignUpForm
+					handleLoginClick={this.handleLoginClick}
 					handleOnSubmit={this.handleOnSubmit}
 					handleOnChange={this.handleOnChange}
 					userInfo={this.state}

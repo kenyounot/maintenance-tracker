@@ -30,6 +30,10 @@ export class Login extends Component {
 		});
 	};
 
+	handleCreateClick = () => {
+		this.props.history.push('/signup');
+	};
+
 	componentDidMount = () => {
 		if (localStorage.getItem('token')) {
 			this.props.history.push('/home');
@@ -40,6 +44,7 @@ export class Login extends Component {
 		return (
 			<div>
 				<LoginForm
+					handleCreateClick={this.handleCreateClick}
 					handleOnChange={this.handleOnChange}
 					handleOnSubmit={this.handleOnSubmit}
 					userInfo={this.state}
