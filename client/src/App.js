@@ -10,11 +10,9 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 	componentDidMount() {
-		this.props.fetchProfile().then(() => {
-			if (localStorage.getItem('token')) {
-				this.props.fetchVehicles();
-			}
-		});
+		if (localStorage.getItem('token')) {
+			this.props.fetchProfile();
+		}
 	}
 
 	render() {
@@ -54,8 +52,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchProfile: () => dispatch(userFetchProfile()),
-		fetchVehicles: () => dispatch(fetchVehicles())
+		fetchProfile: () => dispatch(userFetchProfile())
 	};
 };
 

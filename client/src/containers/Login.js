@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
 import { connect } from 'react-redux';
 import { userAuthenticate } from '../actions/userAuthenticate';
+import { fetchVehicles } from '../actions/fetchVehicles';
 
 export class Login extends Component {
 	constructor(props) {
@@ -18,6 +19,7 @@ export class Login extends Component {
 
 		this.props
 			.userAuthenticate(this.state)
+			.then(() => this.props.fetchVehicles())
 			.then(() => this.props.history.push('/garage'));
 
 		this.setState({
@@ -58,7 +60,8 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo))
+	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo)),
+	fetchVehicles: () => dispatch(fetchVehicles())
 });
 
 const mapStateToProps = state => {

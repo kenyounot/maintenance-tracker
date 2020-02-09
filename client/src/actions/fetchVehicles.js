@@ -1,10 +1,8 @@
-export const fetchVehicles = () => (dispatch, getState) => {
-	const state = getState();
-	const userId = state.userReducer.currentUser.id;
+export const fetchVehicles = () => dispatch => {
 	const token = localStorage.getItem('token');
 
 	dispatch({ type: 'START_FETCHING_VEHICLES' });
-	fetch(`/api/v1/vehicles/${userId}`, {
+	fetch(`/api/v1/getvehicles`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -14,6 +12,8 @@ export const fetchVehicles = () => (dispatch, getState) => {
 	})
 		.then(res => res.json())
 		.then(data => {
+			console.log(data);
+
 			dispatch(storeVehicles(data.vehicles));
 		});
 };
