@@ -4,14 +4,14 @@ class Api::V1::VehiclesController < ApplicationController
 
         if @vehicle.save
             render json: {
-                data: [@vehicle]
+                data: @vehicle
             }
         end
     end
 
     def user_vehicles
         vehicles = current_user.vehicles
-
+    
         render json: {
             vehicles: vehicles,
             status: :ok
@@ -20,7 +20,7 @@ class Api::V1::VehiclesController < ApplicationController
 
 
 
-
+  
     private
 
     def vehicle_params

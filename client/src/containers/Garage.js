@@ -9,9 +9,11 @@ export class Garage extends Component {
 		this.props.fetchVehicles();
 	}
 
-	renderVehiclesOrMessage = () => {
-		if (this.props.vehicles.length < 1) {
-			return <h2>No vehicles in your garage.</h2>;
+	handleVehicleLoading = () => {
+		if (this.props.loading) {
+			return <h2>Loading...</h2>;
+		} else if (this.props.vehicles.length < 1) {
+			return <h2>There are no vehicles in your garage</h2>;
 		} else {
 			return <Vehicles vehicles={this.props.vehicles} />;
 		}
@@ -22,7 +24,7 @@ export class Garage extends Component {
 			<div>
 				<GarageWelcome userName={this.props.userName} />
 				<button>Add Vehicle</button>
-				{this.renderVehiclesOrMessage()}
+				{this.handleVehicleLoading()}
 			</div>
 		);
 	}
@@ -31,7 +33,8 @@ export class Garage extends Component {
 const mapStateToProps = state => {
 	return {
 		userName: state.userReducer.currentUser.name,
-		vehicles: state.vehicleReducer.vehicles
+		vehicles: state.vehicleReducer.vehicles,
+		loading: state.vehicleReducer.loading
 	};
 };
 

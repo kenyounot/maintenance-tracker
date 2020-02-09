@@ -1,7 +1,7 @@
 export const fetchVehicles = () => dispatch => {
 	const token = localStorage.getItem('token');
 
-	dispatch({ type: 'START_FETCHING_VEHICLES' });
+	dispatch({ type: 'FETCHING_VEHICLES' });
 	fetch(`/api/v1/getvehicles`, {
 		method: 'GET',
 		headers: {
@@ -12,8 +12,6 @@ export const fetchVehicles = () => dispatch => {
 	})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			dispatch(storeVehicles(data.vehicles));
 		});
 };

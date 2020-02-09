@@ -1,13 +1,21 @@
 const initialState = {
-	vehicles: []
+	vehicles: [],
+	loading: false
 };
 
 const vehicleReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case 'FETCHING_VEHICLES':
+			return {
+				...state,
+				loading: true
+			};
+
 		case 'ADD_VEHICLES':
 			return {
 				...state,
-				vehicles: action.payload.map(vehicle => vehicle)
+				vehicles: [...action.payload],
+				loading: false
 			};
 
 		default:
