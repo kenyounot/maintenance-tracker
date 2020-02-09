@@ -21,8 +21,6 @@ const NavBar = props => {
 };
 
 const mapDispatchToProps = dispatch => {
-	console.log(`we are in the dispatch`);
-
 	return {
 		userLogout: () => dispatch(userLogout())
 	};

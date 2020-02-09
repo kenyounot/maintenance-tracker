@@ -2,7 +2,7 @@ import React from 'react';
 
 const Vehicle = props => {
 	return (
-		<div>
+		<div className='vehicle-card'>
 			<ul>
 				<p>{props.vehicle.year}</p>
 				<p>{props.vehicle.make}</p>

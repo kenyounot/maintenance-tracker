@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GarageWelcome from '../components/GarageWelcome';
-import Vehicle from '../components/Vehicle';
+import Vehicles from '../components/Vehicles';
 
 export class Garage extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	renderVehicles = vehicles => {
-		return vehicles.map(vehicle => {
-			console.log(vehicle);
-
-			return <Vehicle vehicle={vehicle} />;
-		});
-	};
-
 	render() {
 		return (
 			<div>
 				<GarageWelcome userName={this.props.userName} />
-				{this.renderVehicles(this.props.vehicles)}
+				<button>Add Vehicle</button>
+				<Vehicles vehicles={this.props.vehicles} />
 			</div>
 		);
 	}
