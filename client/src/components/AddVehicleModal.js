@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createVehicle } from '../actions/createVehicle';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export class AddVehicleModal extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			year: '',
+			make: '',
+			model: '',
+			mileage: ''
+		};
+	}
+
 	handleOnSubmit = event => {
 		event.preventDefault();
 		this.props.onHide();
+
+		this.props.createVehicle(this.state);
+	};
+
+	handleOnChange = event => {
+		this.setState({
+			...this.state,
+			[event.target.name]: event.target.value
+		});
 	};
 
 	render() {
@@ -26,8 +48,10 @@ export class AddVehicleModal extends Component {
 							<Form.Group controlId='year'>
 								<Form.Label>Year</Form.Label>
 								<Form.Control
+									onChange={this.handleOnChange}
 									type='number'
 									name='year'
+									value={this.state.year}
 									required
 									placeholder='2000'
 									min='1996'
@@ -38,8 +62,10 @@ export class AddVehicleModal extends Component {
 							<Form.Group controlId='make'>
 								<Form.Label>Make</Form.Label>
 								<Form.Control
+									onChange={this.handleOnChange}
 									type='text'
 									name='make'
+									value={this.state.make}
 									required
 									placeholder='Vehicle make'
 								></Form.Control>
@@ -48,8 +74,10 @@ export class AddVehicleModal extends Component {
 							<Form.Group controlId='model'>
 								<Form.Label>Model</Form.Label>
 								<Form.Control
+									onChange={this.handleOnChange}
 									type='text'
 									name='model'
+									value={this.state.model}
 									required
 									placeholder='Vehicle model'
 								></Form.Control>
@@ -58,8 +86,10 @@ export class AddVehicleModal extends Component {
 							<Form.Group controlId='mileage'>
 								<Form.Label>Mileage</Form.Label>
 								<Form.Control
+									onChange={this.handleOnChange}
 									type='number'
 									name='mileage'
+									value={this.state.mileage}
 									required
 									placeholder='Vehicle mileage'
 								></Form.Control>
@@ -83,4 +113,10 @@ export class AddVehicleModal extends Component {
 	}
 }
 
-export default AddVehicleModal;
+const mapDispatchToProps = dispatch => {
+	return {
+		createVehicle: vehicleInfo => dispatch(createVehicle(vehicleInfo))
+	};
+};
+
+export default connect(null, mapDispatchToProps)(AddVehicleModal);

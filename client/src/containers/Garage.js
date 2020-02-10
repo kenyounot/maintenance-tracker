@@ -49,11 +49,16 @@ export class Garage extends Component {
 					<Button variant='primary' onClick={() => this.toggleModalShow()}>
 						Add Vehicle
 					</Button>
-					<AddVehicleModal
+					{/* <AddVehicleModal
 						show={this.state.modalShow}
 						onHide={() => this.toggleModalShow()}
-					/>
+					/> */}
 				</ButtonToolbar>
+
+				<AddVehicleModal
+					show={this.state.modalShow}
+					onHide={() => this.toggleModalShow()}
+				/>
 
 				{this.handleVehicleLoading()}
 			</div>
