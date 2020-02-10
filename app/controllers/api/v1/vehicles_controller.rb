@@ -1,6 +1,6 @@
 class Api::V1::VehiclesController < ApplicationController
     def create
-        @vehicle = Vehicle.new(vehicle_params)
+        @vehicle = current_user.vehicles.build(vehicle_params)
 
         if @vehicle.save
             render json: {
