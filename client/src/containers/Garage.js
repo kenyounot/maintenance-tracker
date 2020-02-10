@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchVehicles } from '../actions/fetchVehicles';
 import GarageWelcome from '../components/GarageWelcome';
-import Vehicles from '../components/Vehicles';
+import Vehicles from './Vehicles';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
@@ -31,8 +31,6 @@ export class Garage extends Component {
 		} else if (this.props.vehicles.length < 1) {
 			return <h2>There are no vehicles in your garage</h2>;
 		} else {
-			console.log('In the loading or render function');
-
 			return <Vehicles vehicles={this.props.vehicles} />;
 		}
 	};
@@ -44,8 +42,6 @@ export class Garage extends Component {
 	};
 
 	render() {
-		console.log(this.props.vehicles);
-
 		return (
 			<div>
 				<GarageWelcome userName={this.props.userName} />

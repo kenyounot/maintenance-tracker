@@ -17,6 +17,17 @@ class Api::V1::VehiclesController < ApplicationController
             status: :ok
         }
     end
+    
+    def destroy
+        @vehicle = Vehicle.find_by(id: params[:id])
+
+        if @vehicle.destroy 
+            render json: {
+                id: @vehicle.id,
+                status: :deleted
+            }
+        end
+    end
   
     private
 

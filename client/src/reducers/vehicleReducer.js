@@ -12,8 +12,6 @@ const vehicleReducer = (state = initialState, action) => {
 			};
 
 		case 'FETCH_VEHICLES':
-			console.log(action.payload);
-
 			return {
 				...state,
 				vehicles: [...action.payload],
@@ -21,11 +19,15 @@ const vehicleReducer = (state = initialState, action) => {
 			};
 
 		case 'CREATE_VEHICLE':
-			console.log(action.payload);
-
 			return {
 				...state,
 				vehicles: state.vehicles.concat(action.payload)
+			};
+
+		case 'DELETE_VEHICLE':
+			return {
+				...state,
+				vehicles: state.vehicles.filter(vehicle => vehicle.id !== action.payload)
 			};
 
 		default:
