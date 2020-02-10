@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteVehicle } from '../actions/deleteVehicle';
-import Vehicle from '../components/Vehicle';
+import VehicleCard from '../components/VehicleCard';
 
 export class Vehicles extends Component {
 	handleDelete = event => {
@@ -14,7 +14,7 @@ export class Vehicles extends Component {
 
 	renderVehicles = vehicles => {
 		return vehicles.map((vehicle, idx) => {
-			return <Vehicle handleDelete={this.handleDelete} key={idx} vehicle={vehicle} />;
+			return <VehicleCard handleDelete={this.handleDelete} key={idx} vehicle={vehicle} />;
 		});
 	};
 

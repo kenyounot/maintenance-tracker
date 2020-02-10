@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-const Vehicle = props => {
+const VehicleCard = props => {
 	return (
 		<div className='vehicle-card'>
 			<div onClick={() => console.log('clicked')}>
@@ -19,4 +19,4 @@ const Vehicle = props => {
 	);
 };
 
-export default Vehicle;
+export default VehicleCard;

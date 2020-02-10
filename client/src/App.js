@@ -22,6 +22,7 @@ class App extends Component {
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={SignUp} />
 					<ProtectedRoute exact path='/garage' component={Garage} />
+					{/* <ProtectedRoute exact path='/vehicles/id' component={} */}
 				</Switch>
 			</div>
 		);
