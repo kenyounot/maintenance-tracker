@@ -11,7 +11,7 @@ const vehicleReducer = (state = initialState, action) => {
 				loading: true
 			};
 
-		case 'ADD_VEHICLES':
+		case 'FETCH_VEHICLES':
 			return {
 				...state,
 				vehicles: [...action.payload],

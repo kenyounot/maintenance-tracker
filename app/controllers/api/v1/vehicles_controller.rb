@@ -17,9 +17,6 @@ class Api::V1::VehiclesController < ApplicationController
             status: :ok
         }
     end
-
-
-
   
     private
 

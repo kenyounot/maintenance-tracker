@@ -17,6 +17,6 @@ export const fetchVehicles = () => dispatch => {
 };
 
 const storeVehicles = vehicles => ({
-	type: 'ADD_VEHICLES',
+	type: 'FETCH_VEHICLES',
 	payload: vehicles
 });

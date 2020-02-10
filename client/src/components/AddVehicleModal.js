@@ -4,6 +4,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export class AddVehicleModal extends Component {
+	handleOnSubmit = event => {
+		event.preventDefault();
+		this.props.onHide();
+	};
+
 	render() {
 		return (
 			<Modal
@@ -17,7 +22,7 @@ export class AddVehicleModal extends Component {
 				</Modal.Header>
 				<Modal.Body>
 					<div className='container'>
-						<Form onSubmit={this.handleSubmit}>
+						<Form onSubmit={this.handleOnSubmit}>
 							<Form.Group controlId='year'>
 								<Form.Label>Year</Form.Label>
 								<Form.Control

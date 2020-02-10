@@ -42,8 +42,6 @@ export class Garage extends Component {
 	};
 
 	render() {
-		const modalShow = this.state.showModal;
-
 		return (
 			<div>
 				<GarageWelcome userName={this.props.userName} />
