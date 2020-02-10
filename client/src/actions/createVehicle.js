@@ -11,8 +11,13 @@ export const createVehicle = vehicle => {
 			body: JSON.stringify({ vehicle })
 		})
 			.then(res => res.json())
-			.then(vehicle => {
-				console.log(vehicle);
+			.then(data => {
+				dispatch(addVehicle(data.vehicle));
 			});
 	};
 };
+
+const addVehicle = vehInfo => ({
+	type: 'CREATE_VEHICLE',
+	payload: vehInfo
+});

@@ -4,7 +4,7 @@ class Api::V1::VehiclesController < ApplicationController
 
         if @vehicle.save
             render json: {
-                data: @vehicle
+                vehicle: @vehicle
             }
         end
     end

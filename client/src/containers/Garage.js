@@ -31,6 +31,8 @@ export class Garage extends Component {
 		} else if (this.props.vehicles.length < 1) {
 			return <h2>There are no vehicles in your garage</h2>;
 		} else {
+			console.log('In the loading or render function');
+
 			return <Vehicles vehicles={this.props.vehicles} />;
 		}
 	};
@@ -42,6 +44,8 @@ export class Garage extends Component {
 	};
 
 	render() {
+		console.log(this.props.vehicles);
+
 		return (
 			<div>
 				<GarageWelcome userName={this.props.userName} />
@@ -49,16 +53,11 @@ export class Garage extends Component {
 					<Button variant='primary' onClick={() => this.toggleModalShow()}>
 						Add Vehicle
 					</Button>
-					{/* <AddVehicleModal
+					<AddVehicleModal
 						show={this.state.modalShow}
 						onHide={() => this.toggleModalShow()}
-					/> */}
+					/>
 				</ButtonToolbar>
-
-				<AddVehicleModal
-					show={this.state.modalShow}
-					onHide={() => this.toggleModalShow()}
-				/>
 
 				{this.handleVehicleLoading()}
 			</div>
