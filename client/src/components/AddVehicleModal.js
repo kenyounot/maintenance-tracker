@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 export class AddVehicleModal extends Component {
@@ -19,22 +17,55 @@ export class AddVehicleModal extends Component {
 				</Modal.Header>
 				<Modal.Body>
 					<div className='container'>
-						<Row>
-							<Col sm={6}>
-								<Form onSubmit={this.handleSubmit}>
-									<Form.Group controlId='year'>
-										<Form.Label>Year</Form.Label>
-										<Form.Control type='number' name='year' required placeholder='2000' />
-									</Form.Group>
+						<Form onSubmit={this.handleSubmit}>
+							<Form.Group controlId='year'>
+								<Form.Label>Year</Form.Label>
+								<Form.Control
+									type='number'
+									name='year'
+									required
+									placeholder='2000'
+									min='1996'
+									max='2020'
+								/>
+							</Form.Group>
 
-									<Form.Group>
-										<Button variant='primary' type='submit'>
-											Add Vehicle
-										</Button>
-									</Form.Group>
-								</Form>
-							</Col>
-						</Row>
+							<Form.Group controlId='make'>
+								<Form.Label>Make</Form.Label>
+								<Form.Control
+									type='text'
+									name='make'
+									required
+									placeholder='Vehicle make'
+								></Form.Control>
+							</Form.Group>
+
+							<Form.Group controlId='model'>
+								<Form.Label>Model</Form.Label>
+								<Form.Control
+									type='text'
+									name='model'
+									required
+									placeholder='Vehicle model'
+								></Form.Control>
+							</Form.Group>
+
+							<Form.Group controlId='mileage'>
+								<Form.Label>Mileage</Form.Label>
+								<Form.Control
+									type='number'
+									name='mileage'
+									required
+									placeholder='Vehicle mileage'
+								></Form.Control>
+							</Form.Group>
+
+							<Form.Group>
+								<Button variant='primary' type='submit'>
+									Add Vehicle
+								</Button>
+							</Form.Group>
+						</Form>
 					</div>
 				</Modal.Body>
 				<Modal.Footer>

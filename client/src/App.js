@@ -4,7 +4,6 @@ import Login from './containers/Login';
 import SignUp from './containers/SignUp';
 import Garage from './containers/Garage';
 import { userFetchProfile } from './actions/userFetchProfile';
-import { fetchVehicles } from './actions/fetchVehicles';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
