@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
 import Garage from './containers/Garage';
+import VehicleShow from './containers/VehicleShow';
 import { userFetchProfile } from './actions/userFetchProfile';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -22,7 +23,7 @@ class App extends Component {
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={SignUp} />
 					<ProtectedRoute exact path='/garage' component={Garage} />
-					{/* <ProtectedRoute exact path='/vehicles/id' component={} */}
+					<ProtectedRoute exact path='/vehicles/:vehicleId' component={VehicleShow} />
 				</Switch>
 			</div>
 		);
