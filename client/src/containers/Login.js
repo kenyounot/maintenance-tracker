@@ -19,7 +19,11 @@ export class Login extends Component {
 
 		this.props
 			.userAuthenticate(this.state)
-			.then(() => this.props.fetchVehicles())
+			.then(() => {
+				if (localStorage.getItem('token')) {
+					this.props.fetchVehicles();
+				}
+			})
 			.then(() => this.props.history.push('/garage'));
 
 		this.setState({

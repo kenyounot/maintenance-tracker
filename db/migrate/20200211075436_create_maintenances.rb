@@ -1,7 +1,7 @@
 class CreateMaintenances < ActiveRecord::Migration[6.0]
   def change
     create_table :maintenances do |t|
-      t.string :type
+      t.string :kind
       t.integer :mileage
       t.string :parts
       t.text :description
