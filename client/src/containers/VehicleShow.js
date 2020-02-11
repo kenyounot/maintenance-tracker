@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VehicleWelcome from '../components/VehicleWelcome';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { fetchVehicles } from '../actions/fetchVehicles';
 
@@ -8,12 +9,19 @@ export class VehicleShow extends Component {
 		this.props.fetchVehicles();
 	}
 
-	render() {
-		console.log(this.props.vehicle);
+	handleMaintBtnClick = () => {};
 
+	render() {
 		return (
 			<div>
 				<VehicleWelcome make={this.props.vehicle.make} model={this.props.vehicle.model} />
+				<Button
+					vehicle-id={this.props.match.params.vehicleId}
+					onClick={this.handleMaintBtnClick}
+					variant='primary'
+				>
+					Add Maintenance
+				</Button>
 			</div>
 		);
 	}
