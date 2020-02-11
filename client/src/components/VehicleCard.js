@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 const VehicleCard = props => {
 	return (
 		<div className='vehicle-card'>
-			<div onClick={() => console.log('clicked')}>
+			<div onClick={props.handleCardClick} vehicle-id={props.vehicle.id}>
 				<ul>
 					<p>{props.vehicle.year}</p>
 					<p>{props.vehicle.make}</p>

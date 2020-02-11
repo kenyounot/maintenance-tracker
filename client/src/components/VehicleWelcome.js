@@ -3,7 +3,7 @@ import React from 'react';
 const VehicleWelcome = props => {
 	return (
 		<div>
-			Here's Your {props.model} {props.make}'s maintenance history.
+			Here's Your {props.make} {props.model}'s maintenance history.
 		</div>
 	);
 };
