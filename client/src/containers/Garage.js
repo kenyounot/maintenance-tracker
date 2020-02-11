@@ -11,10 +11,6 @@ import AddVehicleModal from '../components/AddVehicleModal';
 export class Garage extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			showModal: false
-		};
 	}
 
 	componentDidMount() {

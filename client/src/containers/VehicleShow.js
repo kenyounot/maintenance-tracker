@@ -1,27 +1,47 @@
 import React, { Component } from 'react';
 import VehicleWelcome from '../components/VehicleWelcome';
+import AddMaintenanceModal from '../components/AddMaintenanceModal';
 import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { connect } from 'react-redux';
 import { fetchVehicles } from '../actions/fetchVehicles';
 
 export class VehicleShow extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showModal: false
+		};
+	}
+
 	componentDidMount() {
 		this.props.fetchVehicles();
 	}
 
-	handleMaintBtnClick = () => {};
+	toggleModalShow = () => {
+		this.setState({
+			modalShow: !this.state.modalShow
+		});
+	};
 
 	render() {
 		return (
 			<div>
 				<VehicleWelcome make={this.props.vehicle.make} model={this.props.vehicle.model} />
-				<Button
-					vehicle-id={this.props.match.params.vehicleId}
-					onClick={this.handleMaintBtnClick}
-					variant='primary'
-				>
-					Add Maintenance
-				</Button>
+
+				<ButtonToolbar>
+					<Button
+						vehicle-id={this.props.match.params.vehicleId}
+						onClick={() => this.toggleModalShow()}
+						variant='primary'
+					>
+						Add Maintenance
+					</Button>
+					<AddMaintenanceModal
+						show={this.state.modalShow}
+						onHide={() => this.toggleModalShow()}
+					/>
+				</ButtonToolbar>
 			</div>
 		);
 	}

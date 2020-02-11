@@ -3,7 +3,7 @@ const initialState = {
 	loading: false
 };
 
-export const maintenanceReducer = (state = initialState, action) => {
+const maintenanceReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'FETCHING_MAINTENANCES':
 			return {
@@ -28,3 +28,5 @@ export const maintenanceReducer = (state = initialState, action) => {
 			return state;
 	}
 };
+
+export default maintenanceReducer;
