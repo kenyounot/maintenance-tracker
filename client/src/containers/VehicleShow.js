@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import VehicleWelcome from '../components/VehicleWelcome';
 import AddMaintenanceModal from '../components/AddMaintenanceModal';
+import Maintenances from './Maintenances';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { connect } from 'react-redux';
 import { fetchVehicles } from '../actions/fetchVehicles';
+import { fetchMaintenances } from '../actions/fetchMaintenances';
 
 export class VehicleShow extends Component {
 	constructor(props) {
@@ -16,6 +18,7 @@ export class VehicleShow extends Component {
 
 	componentDidMount() {
 		this.props.fetchVehicles();
+		this.props.fetchMaintenances();
 	}
 
 	toggleModalShow = () => {
@@ -43,6 +46,8 @@ export class VehicleShow extends Component {
 						onHide={() => this.toggleModalShow()}
 					/>
 				</ButtonToolbar>
+
+				<Maintenances maintenances={this.props.maintenances} />
 			</div>
 		);
 	}
@@ -52,13 +57,16 @@ const mapStateToProps = (state, ownProps) => {
 	const vehicleId = parseInt(ownProps.match.params.vehicleId, 10);
 
 	return {
-		vehicle: state.vehicleReducer.vehicles.find(vehicle => vehicle.id === vehicleId) || []
+		vehicle:
+			state.vehicleReducer.vehicles.find(vehicle => vehicle.id === vehicleId) || [],
+		maintenances: state.maintenanceReducer.maintenances
 	};
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		fetchVehicles: () => dispatch(fetchVehicles())
+		fetchVehicles: () => dispatch(fetchVehicles()),
+		fetchMaintenances: () => dispatch(fetchMaintenances(ownProps.match.params.vehicleId))
 	};
 };
 
