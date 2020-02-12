@@ -38,6 +38,7 @@ export class VehicleShow extends Component {
 						Add Maintenance
 					</Button>
 					<AddMaintenanceModal
+						vehicleId={this.props.match.params.vehicleId}
 						show={this.state.modalShow}
 						onHide={() => this.toggleModalShow()}
 					/>

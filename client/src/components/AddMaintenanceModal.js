@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createMaintenance } from '../actions/createMaintenance';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -13,13 +14,16 @@ export class AddMaintenanceModal extends Component {
 			mileage: '',
 			parts: '',
 			description: '',
-			price: ''
+			price: '',
+			vehicle_id: this.props.vehicleId
 		};
 	}
 
 	handleOnSubmit = event => {
 		event.preventDefault();
 		this.props.onHide();
+
+		this.props.createMaintenance(this.state);
 	};
 
 	handleOnChange = event => {
@@ -79,6 +83,18 @@ export class AddMaintenanceModal extends Component {
 								></Form.Control>
 							</Form.Group>
 
+							<Form.Group controlId='description'>
+								<Form.Label>Description</Form.Label>
+								<Form.Control
+									onChange={this.handleOnChange}
+									type='text'
+									name='description'
+									value={this.state.description}
+									required
+									placeholder='Description'
+								></Form.Control>
+							</Form.Group>
+
 							<Form.Group controlId='price'>
 								<Form.Label>Price</Form.Label>
 								<Form.Control
@@ -109,6 +125,10 @@ export class AddMaintenanceModal extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => {};
+const mapDispatchToProps = dispatch => {
+	return {
+		createMaintenance: maintInfo => dispatch(createMaintenance(maintInfo))
+	};
+};
 
 export default connect(null, mapDispatchToProps)(AddMaintenanceModal);

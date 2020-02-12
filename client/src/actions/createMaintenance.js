@@ -10,6 +10,15 @@ export const createMaintenance = maintenance => {
 				Authorization: `Bearer ${token}`
 			},
 			body: JSON.stringify({ maintenance })
-		});
+		})
+			.then(res => res.json())
+			.then(data => {
+				dispatch(dispatchMaintenance(data.maintenance));
+			});
 	};
 };
+
+const dispatchMaintenance = maintInfo => ({
+	type: 'CREATE_MAINTENANCE',
+	payload: maintInfo
+});
