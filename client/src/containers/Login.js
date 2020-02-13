@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import { connect } from 'react-redux';
 import { userAuthenticate } from '../actions/userAuthenticate';
 import { fetchVehicles } from '../actions/fetchVehicles';
@@ -51,7 +52,7 @@ export class Login extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='login-container'>
 				<LoginForm
 					handleCreateClick={this.handleCreateClick}
 					handleOnChange={this.handleOnChange}

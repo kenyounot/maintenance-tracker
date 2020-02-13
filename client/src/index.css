@@ -10,6 +10,13 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+html,
+body,
+#root,
+#app {
+	height: 100%;
+}
+
 .vehicle-card {
 	border: 1px solid black;
 	margin: 5px;
@@ -19,4 +26,48 @@ code {
 .maintenance-card {
 	border: 1px solid black;
 	margin: 5px;
+}
+
+.login-component {
+	background-color: white;
+	opacity: 95%;
+	color: black;
+	position: absolute;
+	top: 30%;
+	width: 100%;
+	text-align: center;
+}
+
+.login-component > h4 {
+	margin: 15px 0 30px;
+}
+
+.login-container {
+	background-image: url('../src/images/neonbrand-ZSz1m4JPDqU-unsplash.jpg');
+
+	height: 100%;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.login-form {
+	margin: auto;
+
+	width: 50%;
+}
+
+button {
+	margin: 5px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+	display: block;
+	margin: auto;
+	width: 90%;
+	border: 1px solid #818181;
+	padding: 5px;
 }
