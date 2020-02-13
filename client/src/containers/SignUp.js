@@ -45,7 +45,7 @@ export class SignUp extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='form-container'>
 				<SignUpForm
 					handleLoginClick={this.handleLoginClick}
 					handleOnSubmit={this.handleOnSubmit}

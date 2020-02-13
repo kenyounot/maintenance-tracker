@@ -52,7 +52,7 @@ export class Login extends Component {
 
 	render() {
 		return (
-			<div className='login-container'>
+			<div className='form-container'>
 				<LoginForm
 					handleCreateClick={this.handleCreateClick}
 					handleOnChange={this.handleOnChange}

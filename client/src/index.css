@@ -28,21 +28,23 @@ body,
 	margin: 5px;
 }
 
-.login-component {
+.form-component {
 	background-color: white;
 	opacity: 95%;
 	color: black;
 	position: absolute;
-	top: 30%;
-	width: 100%;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 	text-align: center;
 }
 
-.login-component > h4 {
+.form-component > h4 {
 	margin: 15px 0 30px;
 }
 
-.login-container {
+.form-container {
 	background-image: url('../src/images/neonbrand-ZSz1m4JPDqU-unsplash.jpg');
 
 	height: 100%;
@@ -52,10 +54,9 @@ body,
 	background-size: cover;
 }
 
-.login-form {
+.form {
 	margin: auto;
-
-	width: 50%;
+	width: 60%;
 }
 
 button {
