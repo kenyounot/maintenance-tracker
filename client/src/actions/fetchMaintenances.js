@@ -12,7 +12,7 @@ export const fetchMaintenances = vehId => dispatch => {
 	})
 		.then(res => res.json())
 		.then(data => {
-			dispatch(storeMaintenances(data.maintenances));
+			dispatch(storeMaintenances(data.maintenances || []));
 		});
 };
 

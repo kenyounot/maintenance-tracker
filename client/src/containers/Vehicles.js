@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { deleteVehicle } from '../actions/deleteVehicle';
 import VehicleCard from '../components/VehicleCard';
+import CardDeck from 'react-bootstrap/CardDeck';
 
 export class Vehicles extends Component {
 	handleDelete = event => {
@@ -31,7 +32,7 @@ export class Vehicles extends Component {
 	};
 
 	render() {
-		return <div>{this.renderVehicles(this.props.vehicles)}</div>;
+		return <CardDeck>{this.renderVehicles(this.props.vehicles)}</CardDeck>;
 	}
 }
 

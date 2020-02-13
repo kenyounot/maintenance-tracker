@@ -65,7 +65,8 @@ button {
 
 input[type='text'],
 input[type='email'],
-input[type='password'] {
+input[type='password'],
+input[type='number'] {
 	display: block;
 	margin: auto;
 	width: 90%;
