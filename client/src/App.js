@@ -5,6 +5,8 @@ import SignUp from './containers/SignUp';
 import Garage from './containers/Garage';
 import VehicleShow from './containers/VehicleShow';
 import { userFetchProfile } from './actions/userFetchProfile';
+import { fetchVehicles } from './actions/fetchVehicles';
+import { fetchMaintenances } from './actions/fetchMaintenances';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -12,6 +14,8 @@ class App extends Component {
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
 			this.props.fetchProfile();
+			this.props.fetchVehicles();
+			this.props.fetchMaintenances();
 		}
 	}
 
@@ -53,7 +57,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchProfile: () => dispatch(userFetchProfile())
+		fetchProfile: () => dispatch(userFetchProfile()),
+		fetchVehicles: () => dispatch(fetchVehicles()),
+		fetchMaintenances: () => dispatch(fetchMaintenances())
 	};
 };
 

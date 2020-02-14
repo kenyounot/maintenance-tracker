@@ -17,9 +17,7 @@ body,
 	height: 100%;
 }
 
-.vehicle-card {
-	border: 1px solid black;
-	margin: 5px;
+.card-img-top {
 	cursor: pointer;
 }
 

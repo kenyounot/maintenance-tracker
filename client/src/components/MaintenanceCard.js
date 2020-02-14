@@ -1,16 +1,34 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 const MaintenanceCard = props => {
 	return (
-		<div className='maintenance-card'>
-			<ul>
-				<p>Type: {props.maintenance.kind}</p>
-				<p>Mileage: {props.maintenance.mileage}</p>
-				<p>Parts: {props.maintenance.parts}</p>
-				<p>Description: {props.maintenance.description}</p>
-				<p>Price: {props.maintenance.price}</p>
-			</ul>
-		</div>
+		<Card bg='light' border='primary' style={{ width: '18rem' }}>
+			<Card.Body>
+				<Card.Title>{props.maintenance.kind}</Card.Title>
+
+				<ListGroup className='list-group-flush'>
+					<ListGroupItem variant='info'>
+						Mileage: {props.maintenance.mileage}
+					</ListGroupItem>
+					<ListGroupItem variant='info'>Parts: {props.maintenance.parts}</ListGroupItem>
+					<ListGroupItem variant='info'>
+						Description: {props.maintenance.description}
+					</ListGroupItem>
+					<ListGroupItem variant='info'>Price: {props.maintenance.price}</ListGroupItem>
+				</ListGroup>
+				<Button
+					vehicle-id={props.maintenance.id}
+					variant='danger'
+					onClick={props.handleDelete}
+				>
+					Delete Maintenance
+				</Button>
+			</Card.Body>
+		</Card>
 	);
 };
 

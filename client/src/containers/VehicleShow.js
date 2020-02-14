@@ -5,8 +5,6 @@ import Maintenances from './Maintenances';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { connect } from 'react-redux';
-import { fetchVehicles } from '../actions/fetchVehicles';
-import { fetchMaintenances } from '../actions/fetchMaintenances';
 
 export class VehicleShow extends Component {
 	constructor(props) {
@@ -14,11 +12,6 @@ export class VehicleShow extends Component {
 		this.state = {
 			showModal: false
 		};
-	}
-
-	componentDidMount() {
-		this.props.fetchVehicles();
-		this.props.fetchMaintenances();
 	}
 
 	toggleModalShow = () => {
@@ -59,15 +52,10 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		vehicle:
 			state.vehicleReducer.vehicles.find(vehicle => vehicle.id === vehicleId) || [],
-		maintenances: state.maintenanceReducer.maintenances
+		maintenances: state.maintenanceReducer.maintenances.filter(
+			maintenance => maintenance.vehicle_id === vehicleId
+		)
 	};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		fetchVehicles: () => dispatch(fetchVehicles()),
-		fetchMaintenances: () => dispatch(fetchMaintenances(ownProps.match.params.vehicleId))
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(VehicleShow);
+export default connect(mapStateToProps)(VehicleShow);

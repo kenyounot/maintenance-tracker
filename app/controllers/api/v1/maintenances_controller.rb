@@ -10,6 +10,16 @@ class Api::V1::MaintenancesController < ApplicationController
     end
   end
 
+  def index
+    @maintenances = Maintenance.all
+
+    if @maintenances
+      render json: {
+        maintenances: @maintenances
+      }
+    end
+  end
+
   def create
     @maintenance = Maintenance.new(maintenance_params)
 

@@ -1,8 +1,8 @@
-export const fetchMaintenances = vehId => dispatch => {
+export const fetchMaintenances = () => dispatch => {
 	const token = localStorage.getItem('token');
 
 	dispatch({ type: 'FETCHING_MAINTENANCES' });
-	fetch(`/api/v1/getMaintenances/${vehId}`, {
+	fetch(`/api/v1/maintenances`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
