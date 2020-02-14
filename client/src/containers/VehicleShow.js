@@ -29,10 +29,10 @@ export class VehicleShow extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='vehicle-show'>
 				<VehicleWelcome make={this.props.vehicle.make} model={this.props.vehicle.model} />
 
-				<ButtonToolbar>
+				<ButtonToolbar className='text-center'>
 					<Button
 						vehicle-id={this.props.match.params.vehicleId}
 						onClick={() => this.toggleModalShow()}

@@ -66,6 +66,30 @@ body,
 	}
 }
 
+span {
+	font-weight: bold;
+}
+
+.card-title {
+	font-size: 2em;
+}
+
+.vehicle-show {
+	text-align: center;
+}
+
+.btn-danger {
+	margin-top: 15px;
+}
+
+.btn-toolbar {
+	justify-content: center;
+}
+
+.card-body {
+	text-align: center;
+}
+
 .form-component {
 	background-color: white;
 	opacity: 95%;

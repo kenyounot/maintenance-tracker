@@ -13,9 +13,15 @@ const VehicleCard = props => {
 				<Card.Title>{props.vehicle.make}</Card.Title>
 
 				<ListGroup className='list-group-flush'>
-					<ListGroupItem>Year: {props.vehicle.year}</ListGroupItem>
-					<ListGroupItem>Model: {props.vehicle.model}</ListGroupItem>
-					<ListGroupItem>Mileage: {props.vehicle.mileage}</ListGroupItem>
+					<ListGroupItem>
+						<span>Year</span>: {props.vehicle.year}
+					</ListGroupItem>
+					<ListGroupItem>
+						<span>Model</span>: {props.vehicle.model}
+					</ListGroupItem>
+					<ListGroupItem>
+						<span>Mileage</span>: {props.vehicle.mileage}
+					</ListGroupItem>
 				</ListGroup>
 				<Button
 					vehicle-id={props.vehicle.id}
