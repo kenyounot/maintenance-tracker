@@ -14,6 +14,10 @@ export class VehicleShow extends Component {
 		};
 	}
 
+	handleDelete = event => {
+		const maintId = event.target.getAttribute('maintenance-id');
+	};
+
 	toggleModalShow = () => {
 		this.setState({
 			modalShow: !this.state.modalShow

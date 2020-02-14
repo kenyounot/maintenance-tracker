@@ -7,7 +7,7 @@ const VehicleWelcome = props => {
 		<Jumbotron fluid>
 			<Container>
 				<h1>
-					{props.make} {props.model}'s Maintenance
+					{props.make} {props.model}'s Maintenance Page
 				</h1>
 			</Container>
 		</Jumbotron>

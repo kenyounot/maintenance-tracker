@@ -21,7 +21,7 @@ const MaintenanceCard = props => {
 					<ListGroupItem variant='info'>Price: {props.maintenance.price}</ListGroupItem>
 				</ListGroup>
 				<Button
-					vehicle-id={props.maintenance.id}
+					maintenance-id={props.maintenance.id}
 					variant='danger'
 					onClick={props.handleDelete}
 				>
