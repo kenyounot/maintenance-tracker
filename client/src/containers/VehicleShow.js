@@ -31,7 +31,7 @@ export class VehicleShow extends Component {
 		return (
 			<div className='vehicle-show'>
 				<VehicleWelcome make={this.props.vehicle.make} model={this.props.vehicle.model} />
-
+				<h2>Maintenances</h2>
 				<ButtonToolbar className='text-center'>
 					<Button
 						vehicle-id={this.props.match.params.vehicleId}
