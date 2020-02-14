@@ -5,7 +5,7 @@ import MaintenanceCard from '../components/MaintenanceCard';
 export default class Maintenances extends Component {
 	renderMaintenances = maintenances => {
 		return maintenances.map((maintenance, idx) => {
-			return <MaintenanceCard key={idx} maintenance={maintenance} />;
+			return <MaintenanceCard handleDelete={this.props.handleDelete} key={idx} maintenance={maintenance} />;
 		});
 	};
 

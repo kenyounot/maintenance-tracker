@@ -1,8 +1,8 @@
-const deleteMaintenance = maintId => {
+export const deleteMaintenance = maintId => {
 	const token = localStorage.getItem('token');
 
 	return dispatch => {
-		return fetch(`/api/v1/maintenance/${maintId}`, {
+		return fetch(`/api/v1/maintenances/${maintId}`, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
@@ -13,6 +13,7 @@ const deleteMaintenance = maintId => {
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
+				dispatch(dispatchDelete(data.id));
 			});
 	};
 };

@@ -30,6 +30,16 @@ class Api::V1::MaintenancesController < ApplicationController
     end
   end
 
+  def destroy
+    @maintenance = Maintenance.find_by(id: params[:id])
+
+    if @maintenance.destroy
+        render json: {
+          id: @maintenance.id
+        }
+    end
+  end
+
   
 
 

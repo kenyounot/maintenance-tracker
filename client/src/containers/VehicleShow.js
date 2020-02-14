@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import VehicleWelcome from '../components/VehicleWelcome';
 import AddMaintenanceModal from '../components/AddMaintenanceModal';
 import Maintenances from './Maintenances';
+import { deleteMaintenance } from '../actions/deleteMaintenance';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { connect } from 'react-redux';
@@ -16,6 +17,8 @@ export class VehicleShow extends Component {
 
 	handleDelete = event => {
 		const maintId = event.target.getAttribute('maintenance-id');
+
+		this.props.deleteMaint(maintId);
 	};
 
 	toggleModalShow = () => {
@@ -44,7 +47,10 @@ export class VehicleShow extends Component {
 					/>
 				</ButtonToolbar>
 
-				<Maintenances maintenances={this.props.maintenances} />
+				<Maintenances
+					handleDelete={this.handleDelete}
+					maintenances={this.props.maintenances}
+				/>
 			</div>
 		);
 	}
@@ -62,4 +68,10 @@ const mapStateToProps = (state, ownProps) => {
 	};
 };
 
-export default connect(mapStateToProps)(VehicleShow);
+const mapDispatchToProps = dispatch => {
+	return {
+		deleteMaint: maintId => dispatch(deleteMaintenance(maintId))
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(VehicleShow);

@@ -24,7 +24,7 @@ const maintenanceReducer = (state = initialState, action) => {
 				maintenances: state.maintenances.concat(action.payload)
 			};
 
-		case 'DELETE_MAINTENANCES':
+		case 'DELETE_MAINTENANCE':
 			return {
 				...state,
 				maintenances: state.maintenances.filter(
