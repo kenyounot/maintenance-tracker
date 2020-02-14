@@ -17,13 +17,53 @@ body,
 	height: 100%;
 }
 
+.jumbotron {
+	background-image: url(./images/photo-1530046339160-ce3e530c7d2f.jpeg);
+	color: white;
+	font-weight: bold;
+	text-align: center;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .card-img-top {
 	cursor: pointer;
 }
 
-.maintenance-card {
-	border: 1px solid black;
-	margin: 5px;
+.card-group {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card {
+	flex: 1 0 48%;
+	margin: 1%;
+}
+@media (min-width: 576px) {
+	.card-deck .card {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex: 1 0 0%;
+		flex: 1 1 30%;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		margin-right: 15px;
+		margin-bottom: 0;
+		margin-left: 15px;
+	}
+}
+
+@media (min-width: 576px) {
+	.card-deck .card {
+		display: flex;
+		flex: 0 1 30%;
+		flex-direction: column;
+		margin-right: 15px;
+		margin-bottom: 0;
+		margin-left: 15px;
+	}
 }
 
 .form-component {

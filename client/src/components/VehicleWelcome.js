@@ -1,12 +1,16 @@
 import React from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 const VehicleWelcome = props => {
 	return (
-		<div>
-			<h3>
-				Here's Your {props.make} {props.model}'s maintenance history.
-			</h3>
-		</div>
+		<Jumbotron fluid>
+			<Container>
+				<h1>
+					{props.make} {props.model}'s Maintenance
+				</h1>
+			</Container>
+		</Jumbotron>
 	);
 };
 

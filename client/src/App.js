@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar';
+import Navigation from './components/Navigation';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
 import Garage from './containers/Garage';
@@ -40,7 +40,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
 		render={props =>
 			localStorage.getItem('token') ? (
 				<>
-					<NavBar />
+					<Navigation />
 					<Component {...props} />
 				</>
 			) : (

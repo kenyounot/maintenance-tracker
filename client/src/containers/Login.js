@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import { connect } from 'react-redux';
 import { userAuthenticate } from '../actions/userAuthenticate';
 import { fetchVehicles } from '../actions/fetchVehicles';

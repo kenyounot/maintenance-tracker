@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardGroup from 'react-bootstrap/CardGroup';
+import CardDeck from 'react-bootstrap/CardDeck';
 import MaintenanceCard from '../components/MaintenanceCard';
 
 export default class Maintenances extends Component {
@@ -13,7 +13,7 @@ export default class Maintenances extends Component {
 		return (
 			<div>
 				<h4>Maintenances</h4>
-				<CardGroup>{this.renderMaintenances(this.props.maintenances)}</CardGroup>
+				<CardDeck>{this.renderMaintenances(this.props.maintenances)}</CardDeck>
 			</div>
 		);
 	}
