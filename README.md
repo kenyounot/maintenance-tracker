@@ -1,24 +1,21 @@
-# README
+# Maintenace Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Maintenance Tracker is an app to keep track of the service you have completed on your vehicle.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+first - cd into project directory, run 'bundle install' then run 'rake db:migrate'
+second- cd into '/client' and run 'npm install'
+third - cd back into project directory and run 'rake start'
 
-* System dependencies
+## Usage
 
-* Configuration
+Create and account, then add a vehicle to your garage. Next click on the vehicle to start adding maintenance to your selected vehicle.
 
-* Database creation
+## Contributing
 
-* Database initialization
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[MIT](https://choosealicense.com/licenses/mit/)
