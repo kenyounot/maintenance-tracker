@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 const LoginForm = props => {
 	return (
 		<div className='form-component'>
-			<h2>Welcome to the Vehicle Maintenance app</h2>
+			<h2>Welcome Maintenance Tracker</h2>
 			<h4>Login Below</h4>
 			<Form className='form' onSubmit={props.handleOnSubmit}>
 				<Form.Group controlId='formBasicEmail'>
