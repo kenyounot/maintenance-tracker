@@ -18,7 +18,9 @@ const MaintenanceCard = props => {
 					<ListGroupItem variant='info'>
 						Description: {props.maintenance.description}
 					</ListGroupItem>
-					<ListGroupItem variant='info'>Price: {props.maintenance.price}</ListGroupItem>
+					<ListGroupItem variant='info'>
+						Price: ${props.maintenance.price.toFixed(2)}
+					</ListGroupItem>
 				</ListGroup>
 				<Button
 					maintenance-id={props.maintenance.id}
