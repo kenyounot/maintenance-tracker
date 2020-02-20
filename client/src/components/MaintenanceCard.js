@@ -6,7 +6,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 const MaintenanceCard = props => {
 	return (
-		<Card bg='light' border='primary' style={{ width: '18rem' }}>
+		<Card bg='light' style={{ width: '18rem' }}>
 			<Card.Body>
 				<Card.Title>{props.maintenance.kind}</Card.Title>
 

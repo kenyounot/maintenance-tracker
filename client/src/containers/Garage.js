@@ -45,7 +45,6 @@ export class Garage extends Component {
 		return (
 			<div className='garage-container'>
 				<GarageWelcome userName={this.props.userName} />
-				{this.handleVehicleLoading()}
 				<ButtonToolbar>
 					<Button variant='primary' onClick={() => this.toggleModalShow()}>
 						Add Vehicle
@@ -55,6 +54,7 @@ export class Garage extends Component {
 						onHide={() => this.toggleModalShow()}
 					/>
 				</ButtonToolbar>
+				{this.handleVehicleLoading()}
 			</div>
 		);
 	}
