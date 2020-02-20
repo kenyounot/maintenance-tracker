@@ -13,14 +13,19 @@ body,
 }
 
 .jumbotron {
-	background-image: url(./images/photo-1530046339160-ce3e530c7d2f.jpeg);
-	color: white;
-	font-weight: bold;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(./images/photo-1530046339160-ce3e530c7d2f.jpeg);
+	color: rgb(233, 227, 227);
+	font-weight: 600;
 	text-align: center;
 
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.jumbotron h1 {
+	font-size: 5em;
 }
 
 .card-img-top {
