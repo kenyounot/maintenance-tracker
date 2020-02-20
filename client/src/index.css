@@ -96,7 +96,8 @@ span {
 }
 
 .form-component {
-	background-color: white;
+	padding: 20px;
+	background-color: rgb(167, 163, 163);
 	opacity: 95%;
 	color: black;
 	position: absolute;
